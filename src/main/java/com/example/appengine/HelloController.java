@@ -12,14 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/")
 public class HelloController {
     private final DatastoreService datastoreService;
 
-    public HelloController(DatastoreService datastoreService) {
+    private final TestandoRepository testandoRepository;
+
+    public HelloController(DatastoreService datastoreService, TestandoRepository testandoRepository) {
         this.datastoreService = datastoreService;
+        this.testandoRepository = testandoRepository;
     }
 
     @GetMapping(value = "/{id}", produces = "text/plain")
@@ -70,8 +74,24 @@ public class HelloController {
         }
     }
 
-    @GetMapping(value = "/test", produces = "application/json")
-    public String test() {
-        return "{\"message\": \"Hello, World!\"}";
+    @GetMapping(value = "/test/{id}", produces = "application/json")
+    public String test(@PathVariable String id) {
+        Optional<Testando> testandoOptional = testandoRepository.findById(id);
+
+        if (testandoOptional.isPresent()) {
+            return testandoOptional.get().getName();
+        }
+
+        return "{error: 'MEEEEEEEEEEEE'}";
+    }
+
+    @GetMapping(value = "/test2/{id}", produces = "application/json")
+    public String test2(@PathVariable String id) {
+        Testando testando = new Testando();
+        testando.setId(id);
+        testando.setName("Testando 123: " + id);
+        Testando saved = testandoRepository.save(testando);
+
+        return saved.getName();
     }
 }
