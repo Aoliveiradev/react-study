@@ -185,10 +185,10 @@
                     <deploy.promote>true</deploy.promote>
                     <deploy.stopPreviousVersion>true</deploy.stopPreviousVersion>
 
-<!--                    <jvmFlags>-->
-<!--                        <jvmFlag>-Xdebug</jvmFlag>-->
-<!--                        <jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005</jvmFlag>-->
-<!--                    </jvmFlags>-->
+                    <!--                    <jvmFlags>-->
+                    <!--                        <jvmFlag>-Xdebug</jvmFlag>-->
+                    <!--                        <jvmFlag>-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005</jvmFlag>-->
+                    <!--                    </jvmFlags>-->
                 </configuration>
             </plugin>
 
@@ -227,6 +227,72 @@
                         </annotationProcessorPath>
                     </annotationProcessorPaths>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.12.1</version>
+                <configuration>
+                    <workingDirectory>src/main/react</workingDirectory>
+                    <installDirectory>target</installDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v16.14.2</nodeVersion>
+                            <npmVersion>8.5.0</npmVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>default-copy-resources</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <outputDirectory>${project.build.directory}/${project.build.finalName}/</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/src/main/react/build</directory>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

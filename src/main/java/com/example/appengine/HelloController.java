@@ -69,4 +69,9 @@ public class HelloController {
             return "BLA: " + stringWriter;
         }
     }
+
+    @GetMapping(value = "/test", produces = "application/json")
+    public String test() {
+        return "{\"message\": \"Hello, World!\"}";
+    }
 }
