@@ -37,7 +37,7 @@ function SocialCards() {
                     </div>
                 </div>
             </div>
-            {/*TwitterSocial*/}
+            {/*Twitter*/}
             <div className="SocialCard">
                 <div className="face face1">
                     <div className="contentSocial">
@@ -51,11 +51,11 @@ function SocialCards() {
                         <h3>
                             <a href="https://twitter.com/Lokizinrj" target="_blank">@Lokizinrj</a>
                         </h3>
-                        <p>This is where I read news and network with different social groups.</p>
+                        <p>This is where I network and build my professional protfolio.</p>
                     </div>
                 </div>
             </div>
-            {/*GithubSocial*/}
+            {/*Github*/}
             <div className="SocialCard">
                 <div className="face face1">
                     <div className="contentSocial">
@@ -74,8 +74,16 @@ function SocialCards() {
                 </div>
             </div>
         </div>
+
+
+
     </html>
 )}
 
 export default SocialCards;
+
+
+
+
+
 

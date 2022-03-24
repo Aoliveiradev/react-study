@@ -16,11 +16,16 @@ import { GiNotebook } from 'react-icons/gi';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
-        background: '#032FA8',
+        background: '#757575',
         color: theme.palette.common.white,
+
     },
     [`&.${tableCellClasses.body}`]: {
-        fontSize: 12,
+        fontSize: 13,
+        fontWeight: 'italic',
+        paddingLeft: '25px',
+
+
     },
 }));
 
@@ -30,7 +35,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
     // hide last border
     '&:last-child td, &:last-child th': {
-        border: 0,
+        border: '10px',
     },
 }));
 
@@ -39,19 +44,19 @@ function createData(summary, ID, name, degree, clazz, edit) {
 }
 
 const rows = [
-    createData(1, 159, 'Nome do Aluno 1', 24, 4.0),
-    createData(2, 237, 'Nome do Aluno 2', 37, 4.3),
-    createData(3, 262, 'Nome do Aluno 3', 24, 6.0),
-    createData(4, 305, 'Nome do Aluno 4', 67, 4.3),
-    createData(5, 356, 'Nome do Aluno 5', 49, 3.9),
-    createData(6, 159, 'Nome do Aluno 6', 24, 4.0),
+    createData(1, 159, 'Nome do Aluno 1', 24, 4),
+    createData(2, 237, 'Nome do Aluno 2', 37, 4),
+    createData(3, 262, 'Nome do Aluno 3', 24, 6),
+    createData(4, 305, 'Nome do Aluno 4', 67, 4),
+    createData(5, 356, 'Nome do Aluno 5', 49, 3),
+    createData(6, 159, 'Nome do Aluno 6', 24, 4),
 
 ];
 
 export default function AccccessibleTable() {
     return (
         <TableContainer >
-            <Table aria-label="customized table">
+            <Table>
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>

@@ -1,15 +1,20 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2,h3,h4,h5,h6 {
   margin: 30px 0;
   color: #413ab9;
 }
-
-.page-landing {
-  //background-color: lavender;
+.page-landing{
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: linear-gradient(-45deg, #ffffff, #f1f1f1, #d2d2d2, #bdbdbd);
+  background-size: 400% 400%;
+  animation: gradient 7s ease infinite;
+}
+@keyframes gradient {
+  0% {background-position: 0 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0 50%;}
 }
 .div {
   justify-items: center;
@@ -19,18 +24,68 @@ h6 {
   right: 0;
 }
 .toolbar {
-  background: #000046;
+  background:
+  linear-gradient(to bottom right, #3C4BBD 15%, transparent),
+  radial-gradient(circle at 100% 0%, rgba(255,255,255,.2) 10%, transparent 20%) center center / 15px 15px,
+  linear-gradient(to bottom right, #3C4BBD, #57ADD8);
   color: #00FF00;
-  position: inherit;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  height: 300px;
+  height: 60px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
  }
+.leafIcon{
+  font-size: 10px;
+  margin-left: 150px;
+}
+.menuButtonsBox{
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  color: transparent;
+}
+.menuButtons{
+  letter-spacing: 1px;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}
+.loginContent{
+  position: inherit;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: 45%;
+  color: white;
+}
+.loginBox{
+  font-size: 10px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  line-height: 19px;
+}
+.registerBox{
+  font-size: 10px;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  line-height: 19px;
+}
 .content {
   display: flex;
   margin: 82px auto 32px;
@@ -45,71 +100,18 @@ h6 {
   display: flex;
   justify-content: center;
 }
-.card-container {
-  position: absolute;
-  align-items: center;
-  display: flex;
-  color: #fafafa;
-  margin-top: -200px;
-}
-svg.material-icons {
-  height: 20px;
-  width: auto;
-  margin-right: 15px;
-}
-.card svg.material-icons path {
-  fill: #ffff;
-}
-.card {
-  all: unset;
-  border-radius: 4px;
-  border: 1px solid #1cb5e0;
-  background: black;
-  height: 20px;
-  width: 120px;
-  margin: 0 8px 16px;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.2s ease-in-out;
-  line-height: 24px;
-  font-size: 10px;
-
-}
-.App-logo{
-  margin-right: 15px;
-}
-
-.card-container .card:not(:last-child) {
-  margin-right: 0;
-}
-
-.card.card-small {
-  height: 14px;
-  width: 168px;
-}
-
-.card-container .card:not(.highlight-card) {
-  cursor: pointer;
-}
-
-.card-container .card:not(.highlight-card):hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 17px rgba(0,0,70);
-}
-
 .pallets {
   display: flex;
   justify-content: space-around;
-  margin-top: 40px;
+  margin: 50px 25px 50px;
 }
 .table {
-  box-shadow: 0 4px 50px dimgray;
-  min-width: 40%;
+  box-shadow: 0 4px 20px dimgray;
+  min-width: 30%;
   line-height: 24px;
   border-radius: 10px;
+  margin: 50px 25px 0;
+  background: white;
 }
 .chartDiv {
   box-shadow: 0 4px 50px dimgray;
@@ -117,4 +119,15 @@ svg.material-icons {
   background-color: white;
   border: 1px solid white;
   border-radius: 30px;
+}
+footer {
+  background: linear-gradient(to bottom right, #3C4BBD 15%, transparent),
+  radial-gradient(circle at 100% 0%, rgba(255, 255, 255, .2) 10%, transparent 20%) center center / 15px 15px,
+  linear-gradient(to bottom right, #3C4BBD, #57ADD8);
+  font-family: "Evo-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
 }

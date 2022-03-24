@@ -1,43 +1,36 @@
-.bodySocialCard {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
-}
-
 .containerSocialCard {
-  width: 1000px;
+  width: 105%;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  top: -100px;
+
 }
-
-
-
 
 .containerSocialCard .SocialCard .iconSocialCard {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  transition: 0.7s;
+  width: 200px;
+  height: 120px;
+  transition: 0.3s;
   z-index: 1;
+  background: red;
+
 }
 
 .containerSocialCard .SocialCard:nth-child(1) .iconSocialCard {
   background: #0A66C2;
+
 }
 
 .containerSocialCard .SocialCard:nth-child(2) .iconSocialCard {
-  background: #1A8CD8;
+  background: #1DA1F2;
 }
 
 .containerSocialCard .SocialCard:nth-child(3) .iconSocialCard {
-  background: black;
+  background: #333;
 }
 
 
@@ -46,30 +39,35 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 70px;
+  font-size: 60px;
   transition: 0.7s;
   color: #fff;
 }
 
 
 .containerSocialCard .SocialCard .face {
-  width: 300px;
-  height: 200px;
+  width: 200px;
+  height: 120px;
   transition: 0.5s;
+  background-color: transparent;
+  margin: 25px 0 0;
+
 }
 
 .containerSocialCard .SocialCard .face.face1 {
   position: relative;
-  background: #333;
+  background: red;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
-  transform: translateY(100px);
+  transform: translateY(45px);
+  width: 200px;
+  height: 120px;
 }
 
 .containerSocialCard .SocialCard:hover .face.face1{
-  transform: translateY(0px);
+  transform: translateY(25px);
 
 }
 
@@ -93,9 +91,8 @@
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  //box-shadow: 0 20px 50px rgba(0,2,0,0.3);
   transform: translateY(-100px);
-
 }
 
 .containerSocialCard .SocialCard:hover .face.face2{
@@ -106,19 +103,19 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  color: #414141;
+  color: #fff;
+
 }
 
 .containerSocialCard .SocialCard .face.face2 .contentSocial h3 {
   margin: 0 0 10px 0;
   padding: 0;
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
-  color: #414141;
+  color: #fff;
 }
 
 .containerSocialCard a {
   text-decoration: none;
-  color: #414141;
-
+  color: #fff;
 }
