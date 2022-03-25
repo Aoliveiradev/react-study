@@ -1,9 +1,9 @@
 import * as React from 'react';
-import './SocialCard.scss'
+import './social-card.scss'
 import {Helmet} from "react-helmet";
 
 
-function SocialCards() {
+function SocialCard() {
     return (
 
     <html>
@@ -80,7 +80,7 @@ function SocialCards() {
     </html>
 )}
 
-export default SocialCards;
+export default SocialCard;
 
 
 
