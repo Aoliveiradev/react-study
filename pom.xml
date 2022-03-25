@@ -194,7 +194,7 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>2.4.1</version>
                 <configuration>
-                    <projectId>GCLOUD_CONFIG</projectId>
+                    <projectId>syspro-344012</projectId>
                     <version>micronaut-helloworld</version>
                     <gcloudMode>beta</gcloudMode>
                     <deploy.promote>true</deploy.promote>
