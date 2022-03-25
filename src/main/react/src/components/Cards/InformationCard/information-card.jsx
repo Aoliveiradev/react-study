@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './InformationCard.scss'
+import './information-card.scss'
 import {MdClass, MdSchool} from "react-icons/md";
 import {GiRelationshipBounds} from "react-icons/gi";
 import {AiFillExperiment} from "react-icons/ai";

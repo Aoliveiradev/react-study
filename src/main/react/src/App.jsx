@@ -1,14 +1,14 @@
 import './App.scss';
 import * as React from 'react';
-import AcessibleTable from "./components/Table/AcessibleTable";
-import ChartBar from "./components/Chart/ChartBar";
-import CardText from "./components/Cards/TextCards/CardText";
-import InformationCard from "./components/Cards/InformationCard/InformationCard";
-import { SiOverleaf } from 'react-icons/si';
+import AcessibleTable from "./components/Table/acessible-table";
+import ChartBar from "./components/Chart/chart-bar";
+import CardText from "./components/Cards/TextCards/card-text";
+import InformationCard from "./components/Cards/InformationCard/information-card";
 import { FiLogIn } from 'react-icons/fi';
 import { SiGnuprivacyguard } from 'react-icons/si';
-import ChartPie from "./components/Chart/ChartPie";
-import SocialCards from "./components/Cards/SocialCards/SocialCards";
+import ChartPie from "./components/Chart/chart-pie";
+import SocialCard from "./components/Cards/SocialCards/social-card";
+import NaviBar from "./components/NaviBar/navi-bar";
 
 class App extends React.Component {
     render() {
@@ -17,23 +17,16 @@ class App extends React.Component {
                 {/*Toolbar*/}
                 <header>
                     <div className='toolbar'>
-                        {/*MenuItensBox*/}
-                        <SiOverleaf className='leafIcon' size={40} color='#ffff'/>
-                        <div className='menuButtonsBox'>
-                            <a className='menuButtons' href="https://localhost:3000">HOME</a>
-                            <a className='menuButtons' href="https://localhost:3000">DEGREE</a>
-                            <a className='menuButtons' href="https://localhost:3000">CLASSES</a>
-                            <a className='menuButtons' href="https://localhost:3000">MATTERS</a>
-                        </div>
-                        {/*LoginBox*/}
+                        <NaviBar/>
+
                         <div className='loginContent'>
                             <FiLogIn size={30}/>
                             <div className='loginBox'>
-                                <a className='menuButtons' href="https://localhost:3000">Login</a>
+                                <a href="https://localhost:3000">Login</a>
                             </div>
                             <SiGnuprivacyguard size={28}/>
                             <div className='registerBox'>
-                                <a className='menuButtons' href="https://localhost:3000">Register</a>
+                                <a href="https://localhost:3000">Register</a>
                             </div>
                         </div>
                     </div>
@@ -58,8 +51,10 @@ class App extends React.Component {
                      <CardText/>
                  </div>
                 <footer>
-                   
-                    <SocialCards/>
+                   <SocialCard/>
+                    <div className='contato'>
+
+                    </div>
                 </footer>
             </div>
         );

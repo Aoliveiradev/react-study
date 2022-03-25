@@ -1,6 +1,20 @@
+html{
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 0 0;
+}
+
 h2,h3,h4,h5,h6 {
   margin: 30px 0;
   color: #413ab9;
+}
+a{
+  color: white;
+  display: flex;
+  margin: 0 10px 5px;
+  text-decoration: none;
 }
 .page-landing{
   top: 0;
@@ -24,48 +38,39 @@ h2,h3,h4,h5,h6 {
   right: 0;
 }
 .toolbar {
-  background:
-  linear-gradient(to bottom right, #3C4BBD 15%, transparent),
-  radial-gradient(circle at 100% 0%, rgba(255,255,255,.2) 10%, transparent 20%) center center / 15px 15px,
-  linear-gradient(to bottom right, #3C4BBD, #57ADD8);
+  background: #1F2041;
   color: #00FF00;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  height: 60px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding-left: 80px;
  }
+
 .leafIcon{
-  font-size: 10px;
-  margin-left: 150px;
+  margin-left: -25px;
 }
-.menuButtonsBox{
-  margin-left: 20px;
-  display: flex;
-  justify-content: space-around;
-  width: 500px;
-  color: transparent;
+
+@keyframes rainbow {
+  0%{background-position:left}
+  50%{background-position:right}
+  100%{background-position:left}
 }
-.menuButtons{
-  letter-spacing: 1px;
-  padding: 10px;
-  font-size: 18px;
-  color: white;
-  text-decoration: none;
-}
+
+
 .loginContent{
-  position: inherit;
+  position: absolute;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  margin-left: 45%;
+  margin-left: 85%;
   color: white;
 }
-.loginBox{
-  font-size: 10px;
+
+.loginBox .RegisterBox{
+  font-size: 50px;
   font-weight: bold;
   padding-left: 10px;
   padding-right: 10px;
@@ -74,18 +79,9 @@ h2,h3,h4,h5,h6 {
   align-items: center;
   text-align: left;
   line-height: 19px;
+  color: white;
 }
-.registerBox{
-  font-size: 10px;
-  font-weight: bold;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-  line-height: 19px;
-}
+
 .content {
   display: flex;
   margin: 82px auto 32px;
@@ -94,17 +90,20 @@ h2,h3,h4,h5,h6 {
   flex-direction: column;
   align-items: center;
 }
+
 .tittleCenter {
   color: #000046;
   margin-top: 10px;
   display: flex;
   justify-content: center;
 }
+
 .pallets {
   display: flex;
   justify-content: space-around;
   margin: 50px 25px 50px;
 }
+
 .table {
   box-shadow: 0 4px 20px dimgray;
   min-width: 30%;
@@ -113,6 +112,7 @@ h2,h3,h4,h5,h6 {
   margin: 50px 25px 0;
   background: white;
 }
+
 .chartDiv {
   box-shadow: 0 4px 50px dimgray;
   min-width: 20%;
@@ -120,14 +120,13 @@ h2,h3,h4,h5,h6 {
   border: 1px solid white;
   border-radius: 30px;
 }
+
 footer {
-  background: linear-gradient(to bottom right, #3C4BBD 15%, transparent),
-  radial-gradient(circle at 100% 0%, rgba(255, 255, 255, .2) 10%, transparent 20%) center center / 15px 15px,
-  linear-gradient(to bottom right, #3C4BBD, #57ADD8);
-  font-family: "Evo-Regular", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  box-sizing: border-box;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #030303;
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
+
 }
