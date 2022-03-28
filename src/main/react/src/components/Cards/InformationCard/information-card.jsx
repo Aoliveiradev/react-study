@@ -1,13 +1,77 @@
 import * as React from 'react';
 import './information-card.scss'
 import {MdClass, MdSchool} from "react-icons/md";
-import {GiRelationshipBounds} from "react-icons/gi";
-import {AiFillExperiment} from "react-icons/ai";
+import { BsPersonCircle } from 'react-icons/bs';
+import {useEffect, useState} from "react";
 
 function InformationCard() {
+
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/students')
+            .then(response => response.json())
+            .then(json => {
+                setStudents(json.students);
+            });
+    }, []);
+
+    //<--------- ARRAYS ---------> //
+    const degrees = [];
+    const classes = [];
+
+
+
+
+
+    //<------ DEGREES ARRAY ------>//
+    let contadorDegrees = 0;
+    while (contadorDegrees < students.length) {
+        const degree = students[contadorDegrees].degree;
+
+        const resultDegrees = degrees.find((d) => {
+             return degree.id === d.id;
+        }, degree);
+
+        if (resultDegrees === undefined) {
+            degrees.push(degree);
+        }
+
+        contadorDegrees = contadorDegrees + 1;
+
+    }
+
+    //<------ CLASSES ARRAY ------>//
+    let contadorClasses = 0;
+
+    while (contadorClasses < students.length) {
+        const clazz = students[contadorClasses].clazz;
+
+        const resultClasses = classes.find((c) => {
+            return clazz.name === c.name;
+        }, clazz);
+
+        if (resultClasses === undefined) {
+            classes.push(clazz);
+        }
+        contadorClasses = contadorClasses + 1;
+    }
+
     return (
             <div className='divInf2'>
             <div className='divInformationCard'>
+                {/*Students*/}
+                <div className="courses-container">
+                    <div className="course">
+                        <div className="course-preview-relationships">
+                            <BsPersonCircle size={30} className="App-logo" />
+                            <h2>Students Information</h2>
+                        </div>
+                        <div className="course-info">
+                            <span>STUDENTS : {students.length}</span>
+                        </div>
+                    </div>
+                </div>
                 {/*Degrees*/}
                 <div>
                     <div className="course">
@@ -15,9 +79,9 @@ function InformationCard() {
                             <MdSchool size={30} className="App-logo" />
                             <h2>Degrees Information</h2>
                         </div>
-                        <div className="course-info">
-                            <h7>Degrees : 10</h7>
-                        </div>
+                             <div className="course-info">
+                                <span >DEGREES: {degrees.length}</span>
+                            </div>
                     </div>
                 </div>
                 {/*Class*/}
@@ -28,34 +92,23 @@ function InformationCard() {
                             <h2>Class Information</h2>
                         </div>
                         <div className="course-info">
-                            <h7>Class : 5</h7>
+                            <span>CLASSES: {classes.length}</span>
                         </div>
                     </div>
                 </div>
-                {/*RelationShips*/}
-                <div className="courses-container">
-                    <div className="course">
-                        <div className="course-preview-relationships">
-                            <GiRelationshipBounds size={30} className="App-logo" />
-                            <h2>Relation Information</h2>
-                        </div>
-                        <div className="course-info">
-                            <h7>Class Relationships : 8</h7>
-                        </div>
-                    </div>
-                </div>
+
                 {/*Matters*/}
-                <div className="courses-container">
-                    <div className="course">
-                        <div className="course-preview-matters">
-                            <AiFillExperiment size={30} className="App-logo" />
-                            <h2>Matters Information</h2>
-                        </div>
-                        <div className="course-info">
-                            <h7>Degrees Matters : 5</h7>
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="courses-container">*/}
+                {/*    <div className="course">*/}
+                {/*        <div className="course-preview-matters">*/}
+                {/*            <AiFillExperiment size={30} className="App-logo" />*/}
+                {/*            <h2>Matters Information</h2>*/}
+                {/*        </div>*/}
+                {/*        <div className="course-info">*/}
+                {/*            <span>Degrees Matters : 5</span>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
             </div>
 

@@ -1,23 +1,11 @@
 import * as React from 'react';
 import './social-card.scss'
-import {Helmet} from "react-helmet";
 
 
 function SocialCard() {
     return (
 
-    <html>
-        {/*Links // Refs*/}
-        <Helmet>
-        <meta charSet="utf-8" />
-        <title>APP STUDY</title>
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-              rel="stylesheet"
-              integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-              crossOrigin="anonymous"
-        />
-        </Helmet>
-
+    <div>
         <div className="containerSocialCard">
             {/*LinkedinSocial*/}
             <div className="SocialCard">
@@ -77,7 +65,7 @@ function SocialCard() {
 
 
 
-    </html>
+    </div>
 )}
 
 export default SocialCard;

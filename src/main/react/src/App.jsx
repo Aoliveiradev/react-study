@@ -7,18 +7,12 @@ import InformationCard from "./components/Cards/InformationCard/information-card
 import { FiLogIn } from 'react-icons/fi';
 import { SiGnuprivacyguard } from 'react-icons/si';
 import ChartPie from "./components/Chart/chart-pie";
-import SocialCard from "./components/Cards/SocialCards/social-card";
+import SocialCard from "./components/Cards/Footer/SocialCards/social-card";
 import NaviBar from "./components/NaviBar/navi-bar";
-import {useEffect} from "react";
+import FooterInformationCard from "./components/Cards/Footer/footer-information-card/footer-information-card";
+
 
 export default function App() {
-    useEffect(() => {
-        fetch('/api/students')
-            .then(response => response.json())
-            .then(json => {
-                console.log('Hello: ', json);
-            });
-    });
 
     return (
         <div className="page-landing">
@@ -26,7 +20,6 @@ export default function App() {
             <header>
                 <div className='toolbar'>
                     <NaviBar/>
-
                     <div className='loginContent'>
                         <FiLogIn size={30}/>
                         <div className='loginBox'>
@@ -59,10 +52,8 @@ export default function App() {
                  <CardText/>
              </div>
             <footer>
-               <SocialCard/>
-                <div className='contato'>
-
-                </div>
+                     <SocialCard/>
+                     <FooterInformationCard/>
             </footer>
         </div>
     );

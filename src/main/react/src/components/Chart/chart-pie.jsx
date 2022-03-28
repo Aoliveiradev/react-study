@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -10,7 +10,7 @@ import {
     RadialLinearScale,
     ArcElement,
 } from 'chart.js';
-import {Pie} from 'react-chartjs-2';
+import {PolarArea} from 'react-chartjs-2';
 
 
 ChartJS.register(
@@ -27,28 +27,68 @@ ChartJS.register(
 
 
 const ChartPie = () => {
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+        fetch('/api/students')
+            .then(response => response.json())
+            .then(json => {
+                setStudents(json.students);
+            });
+    }, []);
+
+//<--------- ARRAYS ---------> //
+    const degrees = [];
+    const classes = [];
+//<------ DEGREES ARRAY ------>//
+    let contadorDegrees = 0;
+    while (contadorDegrees < students.length) {
+        const degree = students[contadorDegrees].degree;
+
+        const resultDegrees = degrees.find((d) => {
+            return degree.id === d.id;
+        }, degree);
+
+        if (resultDegrees === undefined) {
+            degrees.push(degree);
+        }
+
+        contadorDegrees = contadorDegrees + 1;
+
+    }
+//<------ CLASSES ARRAY ------>//
+    let contadorClasses = 0;
+    while (contadorClasses < students.length) {
+        const clazz = students[contadorClasses].clazz;
+
+        const resultClasses = classes.find((c) => {
+            return clazz.name === c.name;
+        }, clazz);
+
+        if (resultClasses === undefined) {
+            classes.push(clazz);
+        }
+        contadorClasses = contadorClasses + 1;
+    }
+
 const data1 = {
-        labels: ['Degrees', 'Class', 'Relationships', 'Matters','Teachers'],
+        labels: ['Students', 'Degrees', 'Classes'],
             datasets: [
             {
                 label: ["Students"],
-                data: [10, 5, 8, 6, 7],
+                data: [students.length, degrees.length, classes.length],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.5)',
                     'rgba(54, 162, 235, 0.5)',
                     'rgba(255, 206, 86, 0.5)',
-                    'rgba(75, 192, 192, 0.5)',
-                    'rgba(153, 102, 255, 0.5)',
-                    'rgba(255, 159, 64, 0.5)',
+
 
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 0.5)',
                     'rgba(54, 162, 235, 0.5)',
                     'rgba(255, 206, 86, 0.5)',
-                    'rgba(75, 192, 192, 0.5)',
-                    'rgba(153, 102, 255, 0.5)',
-                    'rgba(255, 159, 64, 0.5)',
+
 
                 ],
             },
@@ -59,9 +99,9 @@ const data1 = {
         <div>
 
             <div>
-                <Pie data={data1}
-                     height={100}
-                     width={100}
+                <PolarArea
+                    data={data1}
+
                 />
             </div>
         </div>

@@ -1,0 +1,30 @@
+.footerInformationBody{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 40px 0;
+}
+.displayDivMenu{
+  display: grid;
+  margin: 5px 25px 5px;
+}
+.displayDivSolucoes{
+  display: grid;
+  margin: 5px 25px 5px;
+}
+.displayDivContato{
+  display: grid;
+  margin: 5px 25px 5px;
+}
+
+.h1Information{
+  padding-bottom: 15px;
+  font-size: 25px;
+  color: white;
+
+}
+.displayDiv > a{
+  font-size: 14px;
+  text-align: justify;
+  color: white;
+}

@@ -12,6 +12,7 @@ import { MdSchool } from 'react-icons/md';
 import { MdClass } from 'react-icons/md';
 import { FiEdit } from 'react-icons/fi';
 import { GiNotebook } from 'react-icons/gi';
+import {useEffect, useState} from "react";
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -39,21 +40,20 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function createData(summary, ID, name, degree, clazz, edit) {
-    return { summary, ID, name, degree, clazz, edit };
-}
 
-const rows = [
-    createData(1, 159, 'Nome do Aluno 1', 24, 4),
-    createData(2, 237, 'Nome do Aluno 2', 37, 4),
-    createData(3, 262, 'Nome do Aluno 3', 24, 6),
-    createData(4, 305, 'Nome do Aluno 4', 67, 4),
-    createData(5, 356, 'Nome do Aluno 5', 49, 3),
-    createData(6, 159, 'Nome do Aluno 6', 24, 4),
-
-];
 
 export default function AccccessibleTable() {
+    const [students, setStudents] = useState([])
+
+    useEffect(() => {
+        fetch('/api/students')
+            .then(response => response.json())
+            .then(json => {
+                setStudents(json.students);
+            });
+    }, []);
+
+
     return (
         <TableContainer >
             <Table>
@@ -86,16 +86,16 @@ export default function AccccessibleTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {students.map((row, index) => (
                         <StyledTableRow key={row.name}>
                             <StyledTableCell component="th" scope="row">
-                                {row.summary}
+                                #{index + 1}
                             </StyledTableCell>
-                            <StyledTableCell align="center">{row.ID}</StyledTableCell>
+                            <StyledTableCell align="center">{row.id}</StyledTableCell>
                             <StyledTableCell align="center">{row.name}</StyledTableCell>
-                            <StyledTableCell align="center">{row.degree}</StyledTableCell>
-                            <StyledTableCell align="center">{row.clazz}</StyledTableCell>
-                            <StyledTableCell align="center"><FiEdit size={20} className="App-logo" /></StyledTableCell>
+                            <StyledTableCell align="center">{row.degree.name}</StyledTableCell>
+                            <StyledTableCell align="center">{row.clazz.name}</StyledTableCell>
+                            <StyledTableCell align="center"><FiEdit size={20} className="App-logo"/></StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>
