@@ -5,7 +5,7 @@ import './navi-bar.scss'
 
 export default function NaviBar()  {
     return(
-        <div className='navbar'>
+        <div className='toolbar-nav'>
             <section>
                 <nav className="cl-effect-14">
                     <a href="#">Home</a>

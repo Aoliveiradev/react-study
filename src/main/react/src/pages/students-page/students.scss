@@ -1,0 +1,46 @@
+
+.page-landing{
+  & .table
+  {
+    box-shadow: 0 4px 20px dimgray;
+    min-width: 30%;
+    line-height: 24px;
+    border-radius: 10px;
+    margin: 150px 25px 0;
+    background: white;
+  }
+
+  & .students-chart-cards-information{
+    display: flex;
+    justify-content: space-around;
+    margin: 50px 25px 50px;
+
+    .students-chart-Bar{
+      box-shadow: 0 4px 50px dimgray;
+      min-width: 20%;
+      background-color: white;
+      border: 1px solid white;
+      border-radius: 30px;
+    }
+    .students-chart-Pie {
+      box-shadow: 0 4px 50px dimgray;
+      min-width: 20%;
+      background-color: white;
+      border: 1px solid white;
+      border-radius: 30px;
+    }
+
+  }
+  & .students-footer
+  {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #030303;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}

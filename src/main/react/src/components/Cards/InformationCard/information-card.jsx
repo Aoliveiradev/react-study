@@ -15,14 +15,9 @@ function InformationCard() {
                 setStudents(json.students);
             });
     }, []);
-
     //<--------- ARRAYS ---------> //
     const degrees = [];
     const classes = [];
-
-
-
-
 
     //<------ DEGREES ARRAY ------>//
     let contadorDegrees = 0;
@@ -43,14 +38,11 @@ function InformationCard() {
 
     //<------ CLASSES ARRAY ------>//
     let contadorClasses = 0;
-
     while (contadorClasses < students.length) {
         const clazz = students[contadorClasses].clazz;
-
         const resultClasses = classes.find((c) => {
             return clazz.name === c.name;
         }, clazz);
-
         if (resultClasses === undefined) {
             classes.push(clazz);
         }
@@ -58,58 +50,45 @@ function InformationCard() {
     }
 
     return (
-            <div className='divInf2'>
-            <div className='divInformationCard'>
-                {/*Students*/}
-                <div className="courses-container">
-                    <div className="course">
-                        <div className="course-preview-relationships">
-                            <BsPersonCircle size={30} className="App-logo" />
-                            <h2>Students Information</h2>
-                        </div>
-                        <div className="course-info">
-                            <span>STUDENTS : {students.length}</span>
-                        </div>
-                    </div>
-                </div>
-                {/*Degrees*/}
-                <div>
-                    <div className="course">
-                        <div className="course-preview-degrees">
-                            <MdSchool size={30} className="App-logo" />
-                            <h2>Degrees Information</h2>
-                        </div>
-                             <div className="course-info">
-                                <span >DEGREES: {degrees.length}</span>
+            <div className='information-card-body'>
+                <div className='information-card-container'>
+                    {/*Students*/}
+                    <div>
+                        <div className="information-card-course">
+                            <div className="course-preview-relationships">
+                                <BsPersonCircle size={30} className="information-card-icon" />
+                                <h2>Students Information</h2>
                             </div>
-                    </div>
-                </div>
-                {/*Class*/}
-                <div>
-                    <div className="course">
-                        <div className="course-preview-class">
-                            <MdClass size={30} className="App-logo" />
-                            <h2>Class Information</h2>
-                        </div>
-                        <div className="course-info">
-                            <span>CLASSES: {classes.length}</span>
+                            <div className="course-info">
+                                <span>STUDENTS : {students.length}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                {/*Matters*/}
-                {/*<div className="courses-container">*/}
-                {/*    <div className="course">*/}
-                {/*        <div className="course-preview-matters">*/}
-                {/*            <AiFillExperiment size={30} className="App-logo" />*/}
-                {/*            <h2>Matters Information</h2>*/}
-                {/*        </div>*/}
-                {/*        <div className="course-info">*/}
-                {/*            <span>Degrees Matters : 5</span>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-            </div>
+                    {/*Degrees*/}
+                    <div>
+                        <div className="information-card-course">
+                            <div className="course-preview-degrees">
+                                <MdSchool size={30} className="information-card-icon" />
+                                <h2>Degrees Information</h2>
+                            </div>
+                                 <div className="course-info">
+                                    <span >DEGREES: {degrees.length}</span>
+                                </div>
+                        </div>
+                    </div>
+                    {/*Class*/}
+                    <div>
+                        <div className="information-card-course">
+                            <div className="course-preview-class">
+                                <MdClass size={30} className="information-card-icon" />
+                                <h2>Class Information</h2>
+                            </div>
+                            <div className="course-info">
+                                <span>CLASSES: {classes.length}</span>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
             </div>
 
     )}

@@ -1,0 +1,101 @@
+.edit-students-page {
+
+  .edit-students-page-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .iconBack {
+    position: absolute;
+    margin: 20px;
+    color: #000046;
+    background-color: #ffff;
+    box-shadow: 0 0 8px 4px rgba(0, 0, 70, 0.21);
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    }
+
+}
+
+.container {
+  margin-top: 80px;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & .box::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    transform: skew(3deg, 2.5deg);
+    background: linear-gradient(307deg, rgba(88, 189, 238, 1) 0%, rgba(31, 32, 65, 1) 100%);
+    z-index: -1;
+  }
+}
+
+.container .box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 30px;
+  color: #2e2e2e;
+  background: #ffff;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.27);
+
+  & h1 {
+    margin: 5px 10px 15px 5px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: full-size-kana;
+  }
+
+  & div {
+    margin-bottom: 15px;
+  }
+
+  & .edit-students-page-icon {
+    padding-right: 10px;
+    color: #000046;
+  }
+
+  & input [type=text], input [type=password] {
+    border: none;
+    border-bottom: 1px solid lightgray;
+  }
+}
+
+
+.button {
+  background-color: transparent;
+  border: 1px solid #000046;
+  border-radius: 15px;
+  color: #000046;
+  cursor: pointer;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  padding: 20px 30px;
+  text-align: center;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  will-change: transform;
+  box-shadow: 0 0 24px 4px rgba(0, 0, 0, 0.21);
+  margin-top: 50px;
+
+  &:hover {
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #fff;
+    background-color: #000046;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

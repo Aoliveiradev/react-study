@@ -15,17 +15,17 @@ function FooterInformationCard() {
             </div>
             <div className='displayDivSolucoes'>
                 <h1 className='h1Information'>Nossas soluções</h1>
-                <a href="#">evo | enem</a>
-                <a href="#">evo | fund</a>
-                <a href="#">evo | fuvest</a>
-                <a href="#">evo | unicamp</a>
-                <a href="#">evo | jornada</a>
+                <a href="#">Study | enem</a>
+                <a href="#">Study | fund</a>
+                <a href="#">Study | fuvest</a>
+                <a href="#">Study | unicamp</a>
+                <a href="#">Study | jornada</a>
             </div>
             <div className='displayDivContato'>
                 <h1 className='h1Information'>Contatos</h1>
-                <a href="#">++55 (12) 98175-4467</a>
-                <a href="#">jose@nicomaia.com.br</a>
-                <a href="#">Rua Avelino Esmério da Silva .</a>
+                <a href="#">+55 (48) 99823-7774</a>
+                <a href="#">allanoliveiradev@gmail.com</a>
+                <a href="#">Rua Avelino Esmério da Silva - 185.</a>
                 <a href="#">Jardim Esperança - SP, 12.324-260</a>
             </div>
 

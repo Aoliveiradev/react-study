@@ -4,7 +4,7 @@ import './CardText.scss';
 export default function CardText() {
     return (
 
-        <div className="main-container">
+        <div>
             <div className="cardsText">
                 <div className="cardText card-1">
                     <h2 className="cardText__title">Lingua Portuguesa</h2>

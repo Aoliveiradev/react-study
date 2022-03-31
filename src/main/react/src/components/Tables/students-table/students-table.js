@@ -29,7 +29,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
     },
 }));
-
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
         backgroundColor: theme.palette.action.hover,
@@ -41,8 +40,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-
-export default function AccccessibleTable() {
+export default function StudentsTable() {
     const [students, setStudents] = useState([])
 
     useEffect(() => {
@@ -60,27 +58,27 @@ export default function AccccessibleTable() {
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>
-                            <ImListNumbered size={18} className="App-logo" />
+                            <ImListNumbered size={20} className="App-logo" />
                         </StyledTableCell>
 
                         <StyledTableCell align="center">
-                            <BsPersonCircle size={20} className="App-logo" />
+                            <BsPersonCircle size={25} className="App-logo" />
                         </StyledTableCell>
 
                         <StyledTableCell align="center">
-                            <GiNotebook size={20} className="App-logo" />
+                            <GiNotebook size={25} className="App-logo" />
                         </StyledTableCell>
 
                         <StyledTableCell align="center">
-                            <MdSchool size={20} className="App-logo" />
+                            <MdSchool size={30} className="App-logo" />
                         </StyledTableCell>
 
                         <StyledTableCell align="center">
-                            <MdClass size={20} className="App-logo" />
+                            <MdClass size={25} className="App-logo" />
                         </StyledTableCell>
 
                         <StyledTableCell align="center">
-                            <FiEdit size={20} className="App-logo" />
+                            <FiEdit size={25} className="App-logo" />
                         </StyledTableCell>
 
                     </TableRow>
@@ -95,7 +93,11 @@ export default function AccccessibleTable() {
                             <StyledTableCell align="center">{row.name}</StyledTableCell>
                             <StyledTableCell align="center">{row.degree.name}</StyledTableCell>
                             <StyledTableCell align="center">{row.clazz.name}</StyledTableCell>
-                            <StyledTableCell align="center"><FiEdit size={20} className="App-logo"/></StyledTableCell>
+                            <StyledTableCell align="center">
+                                <a href="http://localhost:3000/#" className='editTableButton'>
+                                <FiEdit size={20} color='black'  className="App-logo"/>
+                                </a>
+                            </StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>
