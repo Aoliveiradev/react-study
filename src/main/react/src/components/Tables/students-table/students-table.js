@@ -94,7 +94,7 @@ export default function StudentsTable() {
                             <StyledTableCell align="center">{row.degree.name}</StyledTableCell>
                             <StyledTableCell align="center">{row.clazz.name}</StyledTableCell>
                             <StyledTableCell align="center">
-                                <a href="http://localhost:3000/#" className='editTableButton'>
+                                <a href="/students/1/edit" className='editTableButton'>
                                 <FiEdit size={20} color='black'  className="App-logo"/>
                                 </a>
                             </StyledTableCell>

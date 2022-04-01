@@ -18,11 +18,10 @@ export default function EditStudents() {
                 <NaviBar/>
             </div>
             </header>
-
             {/*BackButton*/}
-            <BiLeftArrowAlt size={25} className="iconBack"/>
-
-
+            <a href='/students' className="iconBack">
+            <BiLeftArrowAlt  href='/students' size={70} />
+            </a>
             {/*EditCard*/}
             <div className='edit-students-page-card'>
                 <div className="container">
