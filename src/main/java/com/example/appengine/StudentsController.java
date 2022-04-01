@@ -100,4 +100,8 @@ public class StudentsController {
 
         return response;
     }
+
+    public void save(SaveStudentRequest request) {
+
+    }
 }

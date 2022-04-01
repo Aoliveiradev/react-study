@@ -1,10 +1,10 @@
 .edit-students-page {
-
   .edit-students-page-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
   }
   .iconBack {
     position: absolute;
@@ -28,6 +28,7 @@
   align-items: center;
   justify-content: center;
 
+
   & .box::before {
     content: '';
     position: absolute;
@@ -38,10 +39,12 @@
     transform: skew(3deg, 2.5deg);
     background: linear-gradient(307deg, rgba(88, 189, 238, 1) 0%, rgba(31, 32, 65, 1) 100%);
     z-index: -1;
+
   }
 }
 
 .container .box {
+
   width: 100%;
   height: 100%;
   position: relative;
@@ -58,18 +61,19 @@
   }
 
   & div {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 15px;
+    width: 95%;
   }
 
   & .edit-students-page-icon {
-    padding-right: 10px;
+    padding-right: 15px;
     color: #000046;
+
   }
 
-  & input [type=text], input [type=password] {
-    border: none;
-    border-bottom: 1px solid lightgray;
-  }
+
 }
 
 

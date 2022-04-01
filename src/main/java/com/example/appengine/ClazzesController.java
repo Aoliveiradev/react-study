@@ -31,7 +31,7 @@ public class ClazzesController {
 
         Clazz clazz3 = new Clazz();
         clazz3.setId(3);
-        clazz3.setName("c");
+        clazz3.setName("C");
         clazzes.add(clazz3);
 
         Clazz clazz4 = new Clazz();

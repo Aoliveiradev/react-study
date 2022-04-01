@@ -6,21 +6,47 @@ import {MdClass, MdSchool} from "react-icons/md";
 import {BsPersonCircle} from "react-icons/bs";
 import {BiLeftArrowAlt} from "react-icons/bi";
 import TextField from '@material-ui/core/TextField';
-import {useLocation, useParams} from "react-router-dom";
-import {useState} from "react";
+import {useLocation} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 
 export default function EditStudents() {
 
+    //<------ STATES   ------>
     const { state }  = useLocation();
+
+    console.log(state);
+
     const [nameAluno, setNameAluno] = useState(state.student.name);
-    const [serieAluno, setSerieAluno] = useState(state.student.degree.name)
-    const [clazzAluno, setClazzAluno] = useState(state.student.clazz.name)
+    const [serieAluno, setSerieAluno] = useState(state.student.degree.id);
+    const [clazzAluno, setClazzAluno] = useState(state.student.clazz.id);
+
+    const [degrees, setDegrees] = useState([]);
+    const [clazzes, setClazzes] = useState([]);
+
+    //<------ API DEGREES ------>
+    useEffect(() => {
+        fetch('/api/degrees')
+            .then(response => response.json())
+            .then(json => {
+                setDegrees(json.degrees);
+            });
+    }, []);
+
+    //<------ API CLAZZ   ------>
+    useEffect(() => {
+        fetch('/api/clazzes')
+            .then(response => response.json())
+            .then(json => {
+                setClazzes(json.clazzes);
+            });
+    }, []);
+
+
 
     return(
 
         <div className="edit-students-page">
-
             <header>
             {/*Toolbar*/}
             <div className='edit-students-page-toolbarEdit'>
@@ -35,7 +61,6 @@ export default function EditStudents() {
             <div className='edit-students-page-card'>
                 <div className="container">
                     <div className="box">
-
                             <h1>Registro do Aluno</h1>
                             <div>
                                 <BsPersonCircle size={40} className="edit-students-page-icon" />
@@ -64,26 +89,46 @@ export default function EditStudents() {
                             <div>
                                 <MdSchool size={40} className="edit-students-page-icon" />
                                 <TextField
-                                    onChange={(e) => {
+                                    onChange={(e) =>{
                                         setSerieAluno(e.target.value)
                                     }}
+                                    select
+                                    SelectProps={{
+                                        native: true
+                                    }}
+                                    helperText="Selecione a série do Aluno"
                                     value={serieAluno}
-                                    autoComplete="off"
-                                    id="standard-basic"
-                                />
+                                    id="standard-select-currency-native"
+                                >
+                                    {degrees.map((degree) => (
+                                        <option key={degree.id} value={degree.id}>
+                                            {degree.name}
+                                        </option>))}
+
+                                </TextField>
                             </div>
 
                             <h1>Classe do Aluno</h1>
                             <div>
                                 <MdClass size={40} className="edit-students-page-icon" />
                                 <TextField
-                                    onChange={(e)=>{
+                                    onChange={(e) =>{
                                         setClazzAluno(e.target.value)
                                     }}
+                                    select
+                                    SelectProps={{
+                                        native: true
+                                    }}
+                                    helperText="Selecione a classe do Aluno"
                                     value={clazzAluno}
-                                    autoComplete="off"
-                                    id="standard-basic"
-                                />
+                                    id="standard-select-currency-native"
+                                >
+                                    {clazzes.map((clazz) => (
+                                        <option key={clazz.id} value={clazz.id}>
+                                            {clazz.name}
+                                        </option>))}
+
+                                </TextField>
                             </div>
 
 

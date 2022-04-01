@@ -8,12 +8,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { ImListNumbered } from 'react-icons/im';
 import { BsPersonCircle } from 'react-icons/bs';
-import { MdSchool } from 'react-icons/md';
+import {MdOutlineDeleteOutline, MdSchool} from 'react-icons/md';
 import { MdClass } from 'react-icons/md';
 import { FiEdit } from 'react-icons/fi';
 import { GiNotebook } from 'react-icons/gi';
 import {useEffect, useState} from "react";
-import {Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import './students-table.scss'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -64,7 +65,7 @@ export default function StudentsTable() {
     }
 
     return (
-        <TableContainer >
+        <TableContainer className='tableContainer'>
             <Table>
                 <TableHead>
                     <TableRow>
@@ -92,6 +93,10 @@ export default function StudentsTable() {
                             <FiEdit size={25} className="App-logo" />
                         </StyledTableCell>
 
+                        <StyledTableCell align="center">
+                            <MdOutlineDeleteOutline size={25} className="App-logo" />
+                        </StyledTableCell>
+
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -100,15 +105,21 @@ export default function StudentsTable() {
                             <StyledTableCell component="th" scope="row">
                                 #{index + 1}
                             </StyledTableCell>
-                            <StyledTableCell align="center">{student.id}</StyledTableCell>
+                            <StyledTableCell align="center">{student.ra}</StyledTableCell>
                             <StyledTableCell align="center">{student.name}</StyledTableCell>
                             <StyledTableCell align="center">{student.degree.name}</StyledTableCell>
                             <StyledTableCell align="center">{student.clazz.name}</StyledTableCell>
-                            <StyledTableCell align="center">
-                                <a href={`/students/${student.id}/edit`} className="editTableButton" onClick={(event) => edit(event, student)}>
-                                    <FiEdit size={20} color='black'  className="App-logo"/>
+                            <StyledTableCell align="center" >
+                                    <a href={`/students/${student.id}/edit`} onClick={(event) => edit(event, student)}>
+                                        <FiEdit className='students-table-edit-icon' size={20} color='#757575'/>
+                                    </a>
+                            </StyledTableCell>
+                            <StyledTableCell align="center" >
+                                <a href={`/students/${student.id}/edit`} onClick={(event) => edit(event, student)}>
+                                    <MdOutlineDeleteOutline className='students-table-delete-icon' size={25} color='#757575'/>
                                 </a>
                             </StyledTableCell>
+
                         </StyledTableRow>
                     ))}
                 </TableBody>
