@@ -13,7 +13,7 @@ import { MdClass } from 'react-icons/md';
 import { FiEdit } from 'react-icons/fi';
 import { GiNotebook } from 'react-icons/gi';
 import {useEffect, useState} from "react";
-
+import {Link, useNavigate } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -41,7 +41,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 export default function StudentsTable() {
-    const [students, setStudents] = useState([])
+    const [students, setStudents] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch('/api/students')
@@ -51,6 +52,16 @@ export default function StudentsTable() {
             });
     }, []);
 
+
+    function edit(event, student) {
+        event.preventDefault();
+
+        navigate(`/students/${student.id}/edit`, {
+            state: {
+                student
+            }
+        });
+    }
 
     return (
         <TableContainer >
@@ -84,18 +95,18 @@ export default function StudentsTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {students.map((row, index) => (
-                        <StyledTableRow key={row.name}>
+                    {students.map((student, index) => (
+                        <StyledTableRow key={student.name}>
                             <StyledTableCell component="th" scope="row">
                                 #{index + 1}
                             </StyledTableCell>
-                            <StyledTableCell align="center">{row.id}</StyledTableCell>
-                            <StyledTableCell align="center">{row.name}</StyledTableCell>
-                            <StyledTableCell align="center">{row.degree.name}</StyledTableCell>
-                            <StyledTableCell align="center">{row.clazz.name}</StyledTableCell>
+                            <StyledTableCell align="center">{student.id}</StyledTableCell>
+                            <StyledTableCell align="center">{student.name}</StyledTableCell>
+                            <StyledTableCell align="center">{student.degree.name}</StyledTableCell>
+                            <StyledTableCell align="center">{student.clazz.name}</StyledTableCell>
                             <StyledTableCell align="center">
-                                <a href="/students/1/edit" className='editTableButton'>
-                                <FiEdit size={20} color='black'  className="App-logo"/>
+                                <a href={`/students/${student.id}/edit`} className="editTableButton" onClick={(event) => edit(event, student)}>
+                                    <FiEdit size={20} color='black'  className="App-logo"/>
                                 </a>
                             </StyledTableCell>
                         </StyledTableRow>

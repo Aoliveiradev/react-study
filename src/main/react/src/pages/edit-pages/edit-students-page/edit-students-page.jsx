@@ -6,12 +6,21 @@ import {MdClass, MdSchool} from "react-icons/md";
 import {BsPersonCircle} from "react-icons/bs";
 import {BiLeftArrowAlt} from "react-icons/bi";
 import TextField from '@material-ui/core/TextField';
+import {useLocation, useParams} from "react-router-dom";
+import {useState} from "react";
 
 
 export default function EditStudents() {
 
+    const { state }  = useLocation();
+    const [nameAluno, setNameAluno] = useState(state.student.name);
+    const [serieAluno, setSerieAluno] = useState(state.student.degree.name)
+    const [clazzAluno, setClazzAluno] = useState(state.student.clazz.name)
+
     return(
+
         <div className="edit-students-page">
+
             <header>
             {/*Toolbar*/}
             <div className='edit-students-page-toolbarEdit'>
@@ -31,9 +40,10 @@ export default function EditStudents() {
                             <div>
                                 <BsPersonCircle size={40} className="edit-students-page-icon" />
                                 <TextField
+                                    value={state.student.id}
                                     autoComplete="off"
                                     id="standard-basic"
-                                    label="Ex: 1332"
+                                    disabled
                                 />
                             </div>
 
@@ -41,9 +51,12 @@ export default function EditStudents() {
                             <div>
                                 <GiNotebook size={40} className="edit-students-page-icon" />
                                 <TextField
+                                    onChange={(e) => {
+                                        setNameAluno(e.target.value);
+                                    }}
+                                    value={nameAluno}
                                     autoComplete="off"
                                     id="standard-basic"
-                                    label="Ex: Jon Doe"
                                 />
                             </div>
 
@@ -51,9 +64,12 @@ export default function EditStudents() {
                             <div>
                                 <MdSchool size={40} className="edit-students-page-icon" />
                                 <TextField
+                                    onChange={(e) => {
+                                        setSerieAluno(e.target.value)
+                                    }}
+                                    value={serieAluno}
                                     autoComplete="off"
                                     id="standard-basic"
-                                    label="Ex: Ensino Fundamental"
                                 />
                             </div>
 
@@ -61,9 +77,12 @@ export default function EditStudents() {
                             <div>
                                 <MdClass size={40} className="edit-students-page-icon" />
                                 <TextField
+                                    onChange={(e)=>{
+                                        setClazzAluno(e.target.value)
+                                    }}
+                                    value={clazzAluno}
                                     autoComplete="off"
                                     id="standard-basic"
-                                    label="Ex: A"
                                 />
                             </div>
 
