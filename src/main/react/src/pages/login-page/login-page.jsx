@@ -6,27 +6,31 @@ import {FaChevronRight} from "@react-icons/all-files/fa/FaChevronRight";
 import {FaFacebook} from "@react-icons/all-files/fa/FaFacebook";
 import {FaTwitter} from "@react-icons/all-files/fa/FaTwitter";
 import {FaLinkedin} from "@react-icons/all-files/fa/FaLinkedin";
+import {Link} from "react-router-dom";
 
 
 export default function LoginPage() {
 
 
-    return (<div className='page-landing'>
+    return (<div className='page-landing-login'>
             <div className="screen">
                 <div className="screen__content">
                     <form className="login">
                         <div className="login__field">
-                            <FaUser/>
+                            <FaUser size='20' color='#183fa2'/>
                             <input type="text" className="login__input" placeholder="User name / Email"/>
                         </div>
                         <div className="login__field">
-                            <FaLock/>
+                            <FaLock size='20' color='#183fa2'/>
                             <input type="password" className="login__input" placeholder="Password"/>
                         </div>
-                        <button className="button login__submit">
-                            <span className="button__text">Log In Now</span>
+                        <Link to='/students'>
+                        <button
+                            className="button login__submit">
+                            <span className="button__text">Login</span>
                             <FaChevronRight className='button__icon'/>
                         </button>
+                        </Link>
                     </form>
                     <div className="social-login">
                         <h3>log in via</h3>
